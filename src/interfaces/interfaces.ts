@@ -15,3 +15,7 @@ export interface CreateInputProps {
   placeholder?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
+
+export interface CardProps {
+  name: string;
+}

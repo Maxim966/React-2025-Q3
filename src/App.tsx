@@ -3,6 +3,7 @@ import './App.css';
 import SearchControls from './components/search-controls';
 import Results from './components/results-list';
 import type { AppState } from './interfaces/interfaces';
+import ErrorButton from './components/ui/error-button';
 
 export default class App extends Component<object, AppState> {
   state: AppState = {
@@ -18,6 +19,7 @@ export default class App extends Component<object, AppState> {
       <>
         <SearchControls onSearch={this.handleSearch} />
         <Results request={this.state.search} />
+        <ErrorButton className="test-btn" text="Crash App (Test)" />
       </>
     );
   }

@@ -37,3 +37,7 @@ export interface ResultsState {
 export interface AppState {
   search: string;
 }
+
+export interface SearchControlsProps {
+  onSearch: (query: string) => void;
+}

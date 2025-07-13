@@ -2,8 +2,9 @@ import { Component, type ChangeEvent, type ReactNode } from 'react';
 import CreateInput from './ui/input';
 import CreateButton from './ui/button';
 import LocalStorageService from '../services/storage-service';
+import type { SearchControlsProps } from '../interfaces/interfaces';
 
-export default class SearchControls extends Component {
+export default class SearchControls extends Component<SearchControlsProps> {
   state = {
     inputValue: '',
   };
@@ -21,6 +22,7 @@ export default class SearchControls extends Component {
 
   handleClick = (): void => {
     LocalStorageService.set(this.state.inputValue);
+    this.props.onSearch(this.state.inputValue);
   };
 
   render(): ReactNode {

@@ -1,4 +1,4 @@
-import type { ChangeEvent } from 'react';
+import type { ChangeEvent, ReactNode } from 'react';
 
 export interface CreateButtonProps {
   type?: 'submit' | 'reset' | 'button';
@@ -45,4 +45,13 @@ export interface SearchControlsProps {
 export interface ErrorButtonProps {
   className?: string;
   text?: string;
+}
+
+export interface ErrorBoundaryProps {
+  fallback: ReactNode;
+  children: ReactNode;
+}
+
+export interface ErrorBoundaryState {
+  hasError: boolean;
 }

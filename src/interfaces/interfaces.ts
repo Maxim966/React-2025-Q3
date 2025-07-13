@@ -41,3 +41,8 @@ export interface AppState {
 export interface SearchControlsProps {
   onSearch: (query: string) => void;
 }
+
+export interface ErrorButtonProps {
+  className?: string;
+  text?: string;
+}

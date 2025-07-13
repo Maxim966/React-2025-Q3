@@ -19,3 +19,17 @@ export interface CreateInputProps {
 export interface CardProps {
   name: string;
 }
+
+export interface Pokemon {
+  name: string;
+  url: string;
+}
+
+export interface ResultsProps {
+  request: string;
+}
+
+export interface ResultsState {
+  results: Pokemon[];
+  error: string | null;
+}

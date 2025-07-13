@@ -33,3 +33,7 @@ export interface ResultsState {
   results: Pokemon[];
   error: string | null;
 }
+
+export interface AppState {
+  search: string;
+}

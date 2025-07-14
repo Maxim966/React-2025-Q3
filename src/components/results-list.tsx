@@ -3,6 +3,7 @@ import styles from './results-list.module.css';
 import Card from './ui/pokemon-card';
 import Pokemons from '../api/api';
 import type { ResultsProps, ResultsState } from '../interfaces/interfaces';
+import Spinner from './ui/spinner';
 
 export default class Results extends Component<ResultsProps, ResultsState> {
   pokemonResponse = new Pokemons();
@@ -10,6 +11,7 @@ export default class Results extends Component<ResultsProps, ResultsState> {
   state: ResultsState = {
     results: [],
     error: null,
+    loading: false,
   };
 
   componentDidMount(): void {
@@ -23,6 +25,7 @@ export default class Results extends Component<ResultsProps, ResultsState> {
   }
 
   async loadPokemons() {
+    this.setState({ loading: true });
     try {
       let data;
       if (this.props.request.trim() === '') {
@@ -37,13 +40,19 @@ export default class Results extends Component<ResultsProps, ResultsState> {
       this.setState({ results: data, error: null });
     } catch {
       this.setState({ error: 'Pokemon not found' });
+    } finally {
+      this.setState({ loading: false });
     }
   }
 
   render(): ReactNode {
-    const { results, error } = this.state;
+    const { results, error, loading } = this.state;
 
     if (error) return <div className="error">{error}</div>;
+
+    if (loading) {
+      return <Spinner />;
+    }
 
     return (
       <div className={styles['results']}>

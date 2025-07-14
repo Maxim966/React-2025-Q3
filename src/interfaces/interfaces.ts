@@ -32,6 +32,7 @@ export interface ResultsProps {
 export interface ResultsState {
   results: Pokemon[];
   error: string | null;
+  loading: boolean;
 }
 
 export interface AppState {

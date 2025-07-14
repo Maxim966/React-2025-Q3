@@ -1,0 +1,16 @@
+.results {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.results__title {
+  margin: 0;
+}
+
+.results__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}

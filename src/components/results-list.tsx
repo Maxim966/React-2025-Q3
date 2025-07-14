@@ -1,4 +1,5 @@
 import { Component, type ReactNode } from 'react';
+import styles from './results-list.module.css';
 import Card from './ui/pokemon-card';
 import Pokemons from '../api/api';
 import type { ResultsProps, ResultsState } from '../interfaces/interfaces';
@@ -45,10 +46,10 @@ export default class Results extends Component<ResultsProps, ResultsState> {
     if (error) return <div className="error">{error}</div>;
 
     return (
-      <div className="results">
-        <h2 className="results__title">Results</h2>
+      <div className={styles['results']}>
+        <h2 className={styles['results__title']}>Results</h2>
         {results.length > 0 ? (
-          <ul className="results__list">
+          <ul className={styles['results__list']}>
             {results.map((pokemon) => (
               <Card key={pokemon.name} name={pokemon.name} />
             ))}
